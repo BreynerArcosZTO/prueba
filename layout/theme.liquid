@@ -22,6 +22,7 @@
 
     {%- render 'meta-tags' -%}
     {%- render 'stylesheets' -%}
+    {{ 'swiper.min.css' | asset_url | stylesheet_tag }}
     {%- render 'fonts' -%}
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
@@ -32,10 +33,13 @@
     {% endif %}
 
     {{ content_for_header }}
-  </head>
+
+    <script src="{{ 'swiper.min.js' | asset_url }}"></script>
+  </head> 
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
+    <h1>ShopTest</h1>  
     <div id="header-group">
       {% sections 'header-group' %}
     </div>
@@ -43,7 +47,6 @@
     <script
       src="{{ 'critical.js' | asset_url }}"
       type="module"
-      async
       blocking="render"
     ></script>
 
